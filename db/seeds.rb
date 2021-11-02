@@ -1,3 +1,5 @@
 universal = Studio.create!(name: 'Universal Studios', location: 'Hollywood')
+mgm = Studio.create!(name: 'MGM', location: 'New York City')
 ark = universal.movies.create!(title: 'Raiders of the Lost Ark', creation_year: 1981, genre: 'Action/Adventure')
 shrek = universal.movies.create!(title: 'Shrek', creation_year: 2000, genre: 'Comedy')
+oz = mgm.movies.create!(title: 'The Wizard of Oz', creation_year: 1939, genre: 'Musical')
