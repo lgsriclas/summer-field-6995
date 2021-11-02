@@ -14,11 +14,15 @@
 <br/>
 
 <h3>Add an Actor to this Movie:</h3>
-
-  <%= form_with url: "/movies/#{@movie.id}", method: :get, local: true do |f| %>
-    <%= f.label :search %>
-    <%= f.text_field :search %>
+  <%= form_with url: "/movies/#{@movie.id}", method: :post, local: true do |f| %>
+    <%= f.label :actor_name, "Existing Actor Name:"%>
+    <br/>
+    <%= f.text_field :actor_name %>
     <%= f.submit "Add Actor" %>
   <% end %>
+
+
+
+
 
 

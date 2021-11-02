@@ -59,9 +59,9 @@ RSpec.describe 'the movies show' do
     expect(page).to have_content("Add an Actor to this Movie:")
     expect(page).to have_button("Add Actor")
 
-    # fill_in 'Add an Actor to this Movie', with: "Mike Myers"
-    # click_button("Add Actor")
-    #
-    # expect(page).to have_content(myers.name)
+    fill_in 'Existing Actor Name', with: "Mike Myers"
+    click_button("Add Actor")
+
+    expect(page).to have_content(myers.name)
   end
 end
