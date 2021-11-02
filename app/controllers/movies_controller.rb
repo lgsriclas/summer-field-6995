@@ -11,6 +11,12 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
   end
 
+  def update
+    @movie = Movie.find(movie_params)
+
+    redirect_to '/movies/#{movie.id}'
+  end
+
   private
 
   def movie_params

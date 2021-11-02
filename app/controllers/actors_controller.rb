@@ -8,7 +8,13 @@ class ActorsController < ApplicationController
   end
 
   def create
-    @actor = Actor.new(movie_params)
+    @actor = Actor.new(actor_params)
+  end
+
+  def update
+    @actor = Actor.find(actor_params)
+
+    redirect_to '/movies/#{movie.id}'
   end
 
   private

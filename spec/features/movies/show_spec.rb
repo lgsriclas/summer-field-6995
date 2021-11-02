@@ -45,11 +45,11 @@ RSpec.describe 'the movies show' do
     expect(page).to have_content(74.5)
   end
 
-  it 'can add actors to movie' do
+  it 'can add existing actors to movie' do
     universal = Studio.create!(name: 'Universal Studios', location: 'Hollywood')
     ark = universal.movies.create!(title: 'Raiders of the Lost Ark', creation_year: 1981, genre: 'Action/Adventure')
     ford = Actor.create!(name: 'Harrison Ford', age: 79)
-    myers = Actor.create!(name: 'Mike Myers', age: 58)
+    pitt = Actor.create!(name: 'Brad Pitt', age: 57)
     allen = Actor.create!(name: 'Karen Allen', age: 70)
     MovieActor.create!(movie: ark, actor: ford)
     MovieActor.create!(movie: ark, actor: allen)
@@ -59,9 +59,11 @@ RSpec.describe 'the movies show' do
     expect(page).to have_content("Add an Actor to this Movie:")
     expect(page).to have_button("Add Actor")
 
-    fill_in 'Existing Actor Name', with: "Mike Myers"
+    fill_in 'Existing Actor Name', with: pitt.name
     click_button("Add Actor")
 
-    expect(page).to have_content(myers.name)
+    visit "/movies/#{ark.id}"
+
+    expect(page).to have_content(pitt.name)
   end
 end
