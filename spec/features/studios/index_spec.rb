@@ -18,6 +18,8 @@ RSpec.describe 'the studios index' do
     shrek = universal.movies.create!(title: 'Shrek', creation_year: 2000, genre: 'Comedy')
     oz = mgm.movies.create!(title: 'The Wizard of Oz', creation_year: 1939, genre: 'Musical')
 
+    visit "/studios"
+
     expect(page).to have_content(ark.title)
     expect(page).to have_content(shrek.title)
     expect(page).to have_content(oz.title)
