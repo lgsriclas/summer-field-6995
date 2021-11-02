@@ -10,3 +10,15 @@
 
 <br/>
 <h3>Average Age of Actors:</h3> <%= @movie.actors.average_age %>
+<br/>
+<br/>
+
+<h3>Add an Actor to this Movie:</h3>
+
+  <%= form_with url: "/movies/#{@movie.id}", method: :get, local: true do |f| %>
+    <%= f.label :search %>
+    <%= f.text_field :search %>
+    <%= f.submit "Add Actor" %>
+  <% end %>
+
+
