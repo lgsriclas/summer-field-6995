@@ -3,3 +3,13 @@ mgm = Studio.create!(name: 'MGM', location: 'New York City')
 ark = universal.movies.create!(title: 'Raiders of the Lost Ark', creation_year: 1981, genre: 'Action/Adventure')
 shrek = universal.movies.create!(title: 'Shrek', creation_year: 2000, genre: 'Comedy')
 oz = mgm.movies.create!(title: 'The Wizard of Oz', creation_year: 1939, genre: 'Musical')
+ford = Actor.create!(name: 'Harrison Ford', age: 79)
+myers = Actor.create!(name: 'Mike Myers', age: 58)
+garland = Actor.create!(name: 'Judy Garland', age: 47)
+pitt = Actor.create!(name: 'Brad Pitt', age: 57)
+streep = Actor.create!(name: 'Meryl Streep', age: 72)
+
+ma1 = MovieActor.create!(movie_id: 1, actor_id: 1)
+ma2 = MovieActor.create!(movie_id: 2, actor_id: 2)
+ma3 = MovieActor.create!(movie_id: 3, actor_id: 3)
+
