@@ -17,12 +17,31 @@ RSpec.describe 'the movies show' do
     ark = universal.movies.create!(title: 'Raiders of the Lost Ark', creation_year: 1981, genre: 'Action/Adventure')
     ford = Actor.create!(name: 'Harrison Ford', age: 79)
     myers = Actor.create!(name: 'Mike Myers', age: 58)
+    allen = Actor.create!(name: 'Karen Allen', age: 70)
     MovieActor.create!(movie: ark, actor: ford)
+    MovieActor.create!(movie: ark, actor: allen)
 
     visit "/movies/#{ark.id}"
 
     expect(page).to have_content(ford.name)
     expect(page).to have_content(ford.age)
+    expect(page).to have_content(allen.name)
+    expect(page).to have_content(allen.age)
     expect(page).to_not have_content(myers.name)
+  end
+
+  it 'displays average age of actors' do
+    universal = Studio.create!(name: 'Universal Studios', location: 'Hollywood')
+    ark = universal.movies.create!(title: 'Raiders of the Lost Ark', creation_year: 1981, genre: 'Action/Adventure')
+    ford = Actor.create!(name: 'Harrison Ford', age: 79)
+    myers = Actor.create!(name: 'Mike Myers', age: 58)
+    allen = Actor.create!(name: 'Karen Allen', age: 70)
+    MovieActor.create!(movie: ark, actor: ford)
+    MovieActor.create!(movie: ark, actor: allen)
+
+    visit "/movies/#{ark.id}"
+
+    expect(page).to have_content("Average Age of Actors:")
+    expect(page).to have_content(74.5)
   end
 end
