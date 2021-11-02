@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Studio do
+RSpec.describe Studio, type: :model do
   describe 'relationships' do
     it { should have_many(:movies) }
   end
