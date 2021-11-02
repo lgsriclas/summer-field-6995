@@ -8,8 +8,10 @@ myers = Actor.create!(name: 'Mike Myers', age: 58)
 garland = Actor.create!(name: 'Judy Garland', age: 47)
 pitt = Actor.create!(name: 'Brad Pitt', age: 57)
 streep = Actor.create!(name: 'Meryl Streep', age: 72)
+allen = Actor.create!(name: 'Karen Allen', age: 70)
 
 ma1 = MovieActor.create!(movie_id: 1, actor_id: 1)
 ma2 = MovieActor.create!(movie_id: 2, actor_id: 2)
 ma3 = MovieActor.create!(movie_id: 3, actor_id: 3)
+ma4 = MovieActor.create!(movie_id: 1, actor_id: 6)
 
